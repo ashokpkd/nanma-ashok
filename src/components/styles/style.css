@@ -6,5 +6,5 @@
 }
 
 .custom-btn{
-    @apply bg-current w-full  text-white border   h-14 text-xl font-bold rounded-full
+    @apply bg-current w-full  text-white border   h-14 text-lg font-bold rounded-full
 }
