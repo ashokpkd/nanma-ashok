@@ -9,7 +9,7 @@ const LoginForm = () => {
   }
   return (
     <>
-      <form >
+      <div className="w-full">
         <label htmlFor="mobileNumber" className="font-bold text-sm">Email ID/Mobile Number</label>
         <Input
           placeholder={"Mobile Number"}
@@ -21,7 +21,7 @@ const LoginForm = () => {
         />
 
       <label htmlFor="password"  className="font-bold text-sm">Password</label>
-      <div className="relative">
+      <div className="relative w-full">
         <Input
           placeholder={"Password"}
           type={"password"}
@@ -32,7 +32,7 @@ const LoginForm = () => {
         />
         <RiEyeCloseLine className="eye-icon absolute top-1/2 -translate-y-1/2 right-4" />
       </div>
-      </form>
+      </div>
     </>
   );
 };
