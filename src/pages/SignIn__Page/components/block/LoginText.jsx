@@ -1,6 +1,6 @@
 import React from 'react'
 import { IoIosCloseCircleOutline } from "react-icons/io";
-import "@pages/signIn__Page/styles/SignInPage.css";
+import '../../styles/SignInPage.css'
 
 const LoginText = () => {
   return (

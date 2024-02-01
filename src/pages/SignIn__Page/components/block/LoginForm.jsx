@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Input from "@components/UI/Input";
+import Input from "../../../../components/UI/Input";
 import { RiEyeCloseLine } from "react-icons/ri";
 
 const LoginForm = () => {
