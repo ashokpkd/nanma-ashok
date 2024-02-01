@@ -2,7 +2,7 @@ import React from "react";
 import "./styles/SignInPage.css";
 import LoginButton from "./components/block/LoginButton";
 import LoginForm from "./components/block/LoginForm";
-import "@pages/signIn__Page/styles/SignInPage.css";
+import './styles/SignInPage.css'
 import LoginText from "./components/block/LoginText";
 
 function SignInPage() {
