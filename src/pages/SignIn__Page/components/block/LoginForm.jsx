@@ -7,13 +7,16 @@ const LoginForm = () => {
     mobileNumber:'',
     password:''
   });
-  const [click,setClick]=useState(true)
+  const [click,setClick]=useState(false)
   const handleOnChange = (event) => {
     const {name,value}= event.target
     setValue((prev)=>({...prev,[name]:value}));
   };
   const handleEyeIcon = ()=>{
 setClick((prev)=>!prev)
+    setTimeout(() => {
+      setClick(false)
+    }, 500);
   }
   return (
     <>
@@ -40,14 +43,14 @@ setClick((prev)=>!prev)
         <div className="relative w-full">
           <Input
             placeholder={"*********"}
-            type={click ? "password" :"text"}
+            type={click ?"text" :"password"}
             value={value.password}
             name={"password"}
             onChange={handleOnChange}
             id={"password"}
           />
           <div className=" absolute top-1/2 -translate-y-1/2 right-1 cursor-pointer text-zinc-400" onClick={handleEyeIcon}>
-          { click ? <RiEyeCloseLine className="eye-icon"/>  :  <RiEyeLine className="eye-icon"/> }
+          { click ? <RiEyeLine className="eye-icon"/> :<RiEyeCloseLine className="eye-icon"/> }
 
           </div>
         </div>
