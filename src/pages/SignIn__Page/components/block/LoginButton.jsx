@@ -1,9 +1,9 @@
 import React from 'react'
 import Button from '../../../../components/UI/Button'
 
-const LoginButton = () => {
+const LoginButton = ({onClick}) => {
   return (
-    <Button name='Log In'></Button>
+    <Button name='Log In' onClick={onClick} ></Button>
   )
 }
 

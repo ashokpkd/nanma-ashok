@@ -46,7 +46,7 @@ setClick((prev)=>!prev)
             onChange={handleOnChange}
             id={"password"}
           />
-          <div onClick={handleEyeIcon} >{ click ? <RiEyeCloseLine className="eye-icon absolute top-1/2 -translate-y-1/2 right-4 cursor-pointer"/>  :  <RiEyeLine className="eye-icon absolute top-1/2 -translate-y-1/2 right-4 cursor-pointer"/>      }</div>
+          <div onClick={handleEyeIcon} >{ click ? <RiEyeCloseLine className="eye-icon absolute text-zinc-400 top-1/2 -translate-y-1/2 right-4 cursor-pointer"/>  :  <RiEyeLine className="eye-icon absolute text-zinc-400 top-1/2 -translate-y-1/2 right-4 cursor-pointer"/>      }</div>
         </div>
         <p className=" text-right pt-1 text-xs text-zinc-400">Forgot Password ?</p>
 

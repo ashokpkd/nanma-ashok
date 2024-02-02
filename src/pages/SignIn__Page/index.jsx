@@ -12,10 +12,10 @@ function SignInPage() {
   return (
     <div className="signInPage">
       <div className="sign-in-block">
-      <IoIosCloseCircleOutline className="absolute right-3 top-3 text-zinc-400 cursor-pointer" size={"1.5rem"} />
+      <IoIosCloseCircleOutline className="absolute right-3 top-3 text-zinc-400 cursor-pointer" size={"1.75rem"} />
       <LoginText/> 
       <LoginForm />
-      <LoginButton />
+      <LoginButton onClick={()=>navigate('/home')}/>
       <p className=" text-sm text-center" >Not a user?<span className=" font-bold cursor-pointer text-current" onClick={()=>navigate('/signup')} > Sign Up</span></p>
       </div>
     </div>
