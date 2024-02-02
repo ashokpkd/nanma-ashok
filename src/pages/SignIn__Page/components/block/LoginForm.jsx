@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Input from "../../../../components/UI/Input";
-import { RiEyeCloseLine } from "react-icons/ri";
+import { RiEyeCloseLine, RiEyeLine } from "react-icons/ri";
 
 const LoginForm = () => {
   const [value, setValue] = useState({
@@ -46,7 +46,7 @@ setClick((prev)=>!prev)
             onChange={handleOnChange}
             id={"password"}
           />
-          <RiEyeCloseLine className="eye-icon absolute top-1/2 -translate-y-1/2 right-4 cursor-pointer"  onClick={handleEyeIcon}/>
+          <div onClick={handleEyeIcon} >{ click ? <RiEyeCloseLine className="eye-icon absolute top-1/2 -translate-y-1/2 right-4 cursor-pointer"/>  :  <RiEyeLine className="eye-icon absolute top-1/2 -translate-y-1/2 right-4 cursor-pointer"/>      }</div>
         </div>
         <p className=" text-right pt-1 text-xs text-zinc-400">Forgot Password ?</p>
 
