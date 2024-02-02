@@ -3,12 +3,12 @@
     @apply  w-full min-h-screen flex justify-center items-center  bg-black px-5 
 }
 .sign-in-block {
-    @apply w-96 flex flex-col gap-y-8 px-2 py-7 md:px-5 lg:px-10 rounded-lg  relative bg-white 
+    @apply w-96 flex flex-col gap-y-8 px-2 py-7 md:px-5 lg:px-7 rounded-lg  relative bg-white 
 
 }
 /*loginText*/
 .header-title{
-    @apply text-lg font-bold
+    @apply text-lg font-bold 
 }
 .header-text{
     @apply text-xs text-center w-[250px] px-2

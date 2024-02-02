@@ -16,7 +16,7 @@ function SignInPage() {
       <LoginText/> 
       <LoginForm />
       <LoginButton onClick={()=>navigate('/home')}/>
-      <p className=" text-sm text-center" >Not a user?<span className=" font-bold cursor-pointer text-current" onClick={()=>navigate('/signup')} > Sign Up</span></p>
+      <p className=" text-sm text-center" >Not a user?<span className=" font-semibold cursor-pointer text-current" onClick={()=>navigate('/signup')} > Sign Up</span></p>
       </div>
     </div>
   );

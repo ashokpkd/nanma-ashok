@@ -19,7 +19,7 @@ setClick((prev)=>!prev)
     <>
       <div className="w-full flex flex-col gap-5">
         <div>
-        <label htmlFor="mobileNumber" className="font-normal text-sm">
+        <label htmlFor="mobileNumber" className="font-semibold text-sm">
           Email ID/Mobile Number
         </label>
         <Input
@@ -33,20 +33,23 @@ setClick((prev)=>!prev)
         </div>
         <div>
         <div >
-          <label htmlFor="password" className="font-normal text-sm">
+          <label htmlFor="password" className="font-semibold text-sm">
             Password
           </label>
         </div>
         <div className="relative w-full">
           <Input
-            placeholder={"Password"}
+            placeholder={"*********"}
             type={click ? "password" :"text"}
             value={value.password}
             name={"password"}
             onChange={handleOnChange}
             id={"password"}
           />
-          <div onClick={handleEyeIcon} >{ click ? <RiEyeCloseLine className="eye-icon absolute text-zinc-400 top-1/2 -translate-y-1/2 right-4 cursor-pointer"/>  :  <RiEyeLine className="eye-icon absolute text-zinc-400 top-1/2 -translate-y-1/2 right-4 cursor-pointer"/>      }</div>
+          <div className=" absolute top-1/2 -translate-y-1/2 right-1 cursor-pointer text-zinc-400" onClick={handleEyeIcon}>
+          { click ? <RiEyeCloseLine className="eye-icon"/>  :  <RiEyeLine className="eye-icon"/> }
+
+          </div>
         </div>
         <p className=" text-right pt-1 text-xs text-zinc-400">Forgot Password ?</p>
 

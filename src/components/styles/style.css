@@ -1,10 +1,8 @@
-*{
-    @apply font-sans
-}
+
 .custom-input{
-@apply border  h-12 flex justify-center items-center px-5 bg-zinc-100 rounded-xl
+@apply border  h-10 flex justify-center items-center px-5 bg-zinc-100 rounded-xl
 }
 
 .custom-btn{
-    @apply bg-current w-full  text-white border   h-14 text-lg font-bold rounded-full
+    @apply bg-current w-full  text-white border   h-12 text-lg font-bold rounded-full
 }
