@@ -3,6 +3,5 @@
 }
 
 .sign-up-block{
-    @apply w-96 flex flex-col gap-y-8 px-2 py-7 md:px-5 lg:px-7 rounded-lg  relative bg-white 
-
+    @apply w-96 flex flex-col gap-y-8 px-5 py-7 md:px-5 lg:px-5 rounded-lg  relative bg-white 
 }
