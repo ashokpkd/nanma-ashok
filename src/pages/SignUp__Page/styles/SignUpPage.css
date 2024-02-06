@@ -1,5 +1,5 @@
 .sign-up-page{
-    @apply w-full min-h-screen flex justify-center items-center bg-black px-2
+    @apply w-full min-h-screen flex justify-center items-center bg-black px-2 py-3
 }
 
 .sign-up-block{

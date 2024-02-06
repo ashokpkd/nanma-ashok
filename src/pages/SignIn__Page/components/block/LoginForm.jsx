@@ -51,20 +51,18 @@ const LoginForm = () => {
           <div>
             <Input
               placeholder={"Mobile Number"}
-              type={"number"}
+              type={"text"}
               value={value.mobileNumber}
               name={"mobileNumber"}
               onChange={handleOnChange}
               id={"mobileNumber"}
             />
-          </div>
-          <div className="flex justify-end">
+          </div>        
             {errors.mobileNumber && (
               <span className="text-xs top-0 text-red-600  w-min-5 ">
                 {errors.mobileNumber}
               </span>
             )}
-          </div>
         </div>
         <div>
           <label htmlFor="password" className="font-semibold text-sm ">
@@ -90,13 +88,11 @@ const LoginForm = () => {
               )}
             </div>
           </div>
-          <div className="flex justify-end ">
             {errors.password && (
               <span className="text-xs top-0 text-red-600  ">
                 {errors.password}
               </span>
             )}
-          </div>
           <p className=" text-right pt-3 text-xs text-zinc-400">
             Forgot Password ?
           </p>

@@ -45,10 +45,10 @@ const SignUpForm = () => {
       newErrors.Password = passwordError
     }
     if (!value.ConfirmPassword) {
-      newErrors.ConfirmPassword = "confirm password is required";
+      newErrors.ConfirmPassword = "Confirm password is required";
     }
     if (value.Password !== value.ConfirmPassword) {
-      newErrors.notSamePwd = " entered password is not same as above";
+      newErrors.notSamePwd = " Entered password is not same as above";
     }
     setErrors(newErrors);
     if (Object.keys(newErrors).length === 0) {
@@ -72,11 +72,9 @@ const SignUpForm = () => {
             onChange={handleOnChange}
             id={"name"}
           />
-          <div className="flex justify-end">
             {errors.Name && (
               <span className=" text-red-600 text-xs">{errors.Name}</span>
             )}
-          </div>
         </div>
         <div>
           <label htmlFor="" className="font-semibold text-sm">
@@ -90,11 +88,9 @@ const SignUpForm = () => {
             onChange={handleOnChange}
             id={"email"}
           />
-          <div className="flex justify-end">
             {errors.Email && (
               <span className=" text-red-600 text-xs">{errors.Email}</span>
             )}
-          </div>
         </div>
         <div>
           <label htmlFor="" className="font-semibold text-sm">
@@ -102,19 +98,17 @@ const SignUpForm = () => {
           </label>
           <Input
             placeholder={"Mobile Number"}
-            type={"number"}
+            type={"text"}
             value={value.MobileNumber}
             name={"MobileNumber"}
             onChange={handleOnChange}
             id={"mobileNumber"}
           />
-          <div className="flex justify-end">
             {errors.MobileNumber && (
               <span className=" text-red-600 text-xs">
                 {errors.MobileNumber}
               </span>
             )}
-          </div>
         </div>
         <div className="relative">
           <label htmlFor="" className="font-semibold text-sm">
@@ -139,11 +133,9 @@ const SignUpForm = () => {
               onClick={handleIconClick}
             />
           )}
-          <div className="flex justify-end">
             {errors.Password && (
               <span className=" text-red-600 text-xs">{errors.Password}</span>
             )}
-          </div>
         </div>
         <div>
           <label htmlFor="" className="font-semibold text-sm">
@@ -157,7 +149,6 @@ const SignUpForm = () => {
             onChange={handleOnChange}
             id={"mobileNumber"}
           />
-          <div className="flex justify-end">
             {errors.ConfirmPassword ? (
               <span className=" text-red-600 text-xs">
                 {errors.ConfirmPassword}
@@ -167,7 +158,7 @@ const SignUpForm = () => {
                 {errors.notSamePwd}
               </span>
             )}
-          </div>
+          
         </div>
         <div className=" mt-5">
           <Button name={"Sign Up"} />
