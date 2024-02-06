@@ -51,14 +51,18 @@ const ResetForm = () => {
           <form action="" className='w-full flex flex-col gap-5' onSubmit={handleOnsubmit}>
               <div>
                   <Input name={'mobile'} value={value.mobile} placeholder={'Mobile'} type={'text'} onChange={handleOnChange} id={'Mobile'} />
-                  {errors.mobileNumber && <span className="text-xs text-red-600 ">{errors.mobileNumber}</span> }
+              </div>
+              <div className=' -mt-5'>
+              {errors.mobileNumber && <span className="text-xs text-red-600 ">{errors.mobileNumber}</span> }
               </div>
               <div className='w-1/4  ml-auto '>
               <Button name={'Get OTP'} className={"rounded-xl h-10 text-xs  font-semibold"}/> 
               </div>
               <div>
                   <Input name={'enterOtp'} value={value.enterOtp} placeholder={'Enter OTP'} type={'text'} onChange={handleOnChange} id={'enterOTP'} />
-                  {errors.enterOtp && <span className="text-xs text-red-600 ">{errors.enterOtp}</span> }
+              </div>
+              <div className=' -mt-5'>
+              {errors.enterOtp && <span className="text-xs text-red-600 ">{errors.enterOtp}</span> }
               </div>
               <div className='relative'>
                   <Input name={'resetPassword'} value={value.resetPassword} type={click ? "password" : "text"} onChange={handleOnChange} placeholder={'Reset password'} id={'resetPassword'} />
@@ -69,14 +73,17 @@ const ResetForm = () => {
                   className=" absolute top-1/2 -translate-y-1/2 right-5 text-zinc-400 cursor-pointer"
                   onClick={handleIconClick}
                 />
-            }
-                  {errors.password && <span className="text-xs text-red-600 ">{errors.password}</span> }
+                  }
+              </div>
+              <div className=' -mt-5'>
+              {errors.password && <span className="text-xs text-red-600 ">{errors.password}</span> }                 
               </div>
               <div>
-                  <Input name={'confirmPassword'} value={value.confirmPassword} type={'password'} onChange={handleOnChange} placeholder={'Confirm Password'} id={'confirmPassword'} />
-                  {!value.confirmPassword ? (<span className='text-xs text-red-600'>{errors.confirmPassword}</span>)
+                  <Input name={'confirmPassword'} value={value.confirmPassword} type={'password'} onChange={handleOnChange} placeholder={'Confirm Password'} id={'confirmPassword'} />                   
+              </div>
+              <div className=' -mt-5'>
+              {!value.confirmPassword ? (<span className='text-xs text-red-600'>{errors.confirmPassword}</span>)
                       : (<span className='text-xs text-red-600'>{errors.notSamePwd}</span>)}
-                        
               </div>
               <div>
                   <Button name={'Reset Password'} className={'font-semibold '}/>
