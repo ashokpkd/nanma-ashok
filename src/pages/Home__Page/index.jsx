@@ -1,8 +1,15 @@
 import React from 'react'
+import useCustomApi from '../../hooks/useCustomApi'
 
 const HomePage = () => {
+  const { get, post, error, data } = useCustomApi()
+  
+  get('https://fakestoreapi.com/products')
+  console.log('fetch',data,error)
   return (
-    <div>HomePage</div>
+    <div>
+home page
+    </div>
   )
 }
 

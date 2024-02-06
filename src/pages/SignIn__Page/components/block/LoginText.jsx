@@ -9,7 +9,6 @@ const LoginText = () => {
                 <p className="header-text">
                     Where Every Bite Tells a Story, and Every
                     Moment Feels Like Home!</p>
-
             </div>
     </>
   )

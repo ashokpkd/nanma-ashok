@@ -93,7 +93,7 @@ const LoginForm = () => {
                 {errors.password}
               </span>
             )}
-          <p className=" text-right pt-3 text-xs text-zinc-400">
+          <p onClick={()=>navigate('/resetpassword')} className=" text-right pt-3 text-xs text-zinc-400 cursor-pointer hover:text-current">
             Forgot Password ?
           </p>
         </div>

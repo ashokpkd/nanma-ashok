@@ -13,10 +13,10 @@ const useCustomApi = () => {
       setErrors(`Error : ${error.message}`);
     }
   };
-  const get = (url, options = {}) => {
+  const get = (url) => {
     useEffect(() => {
-      fetchData(url, options);
-    }, [url, options]);
+      fetchData(url);
+    }, []);
   };
   const post = (url, options = {}) => {
     useEffect(() => {
