@@ -3,7 +3,7 @@ export const ValidateEmail = (Email) => {
         return 'Email is required'
     }
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (emailRegex.test(Email)) {
+    if (!emailRegex.test(Email)) {
         return 'Invalid email'
     }
     return null

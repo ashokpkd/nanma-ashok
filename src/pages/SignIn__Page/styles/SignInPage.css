@@ -21,5 +21,21 @@
     @apply absolute top-1/2 -translate-y-1/2 right-5 
 }
 
-
-
+.loading{
+    background-color: rgb(2, 2, 2);
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.loader {
+    width: 48px;
+    height: 48px;
+    border: 5px solid #FFF;
+    border-bottom-color: darkslateblue;
+    border-radius: 50%;
+    display: inline-block;
+    box-sizing: border-box;
+    animation: rotation 1s linear infinite;
+    }

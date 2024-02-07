@@ -7,9 +7,19 @@ import { useNavigate } from "react-router-dom";
 import { ValidateEmail } from "../../../../Utils/validators/ValidateEmail";
 import { ValidateNumber } from "../../../../Utils/validators/ValidateNumber";
 import { ValidatePassword } from "../../../../Utils/validators/ValidatePassword";
+import useCustomPostApi from "../../../../hooks/api/useCustomPostApi";
+import { routes } from "../../../../constants/routes";
 
 const SignUpForm = () => {
   const navigate = useNavigate();
+  const {
+    loading,
+    errors: apiErrors,
+    postData,
+  } = useCustomPostApi({
+    url: "https://portal.umall.in/api/customer/register",
+    successCB: onSignUpSuccess
+  });
   const [value, setValue] = useState({
     Name: "",
     Email: "",
@@ -26,23 +36,23 @@ const SignUpForm = () => {
   const handleIconClick = () => {
     setClick((prev) => !prev);
   };
-  const handleSignUpForm = (event) => {
+  const handleSignUpForm = async (event) => {
     event.preventDefault();
     const newErrors = {};
     if (!value.Name) {
       newErrors.Name = "Name is required";
     }
-    const emailError = ValidateEmail(value.Email)
+    const emailError = ValidateEmail(value.Email);
     if (emailError) {
       newErrors.Email = emailError;
     }
-    const mobileNumberError = ValidateNumber(value.MobileNumber)
+    const mobileNumberError = ValidateNumber(value.MobileNumber);
     if (mobileNumberError) {
       newErrors.MobileNumber = mobileNumberError;
     }
-    const passwordError = ValidatePassword(value.Password)
+    const passwordError = ValidatePassword(value.Password);
     if (passwordError) {
-      newErrors.Password = passwordError
+      newErrors.Password = passwordError;
     }
     if (!value.ConfirmPassword) {
       newErrors.ConfirmPassword = "Confirm password is required";
@@ -52,16 +62,27 @@ const SignUpForm = () => {
     }
     setErrors(newErrors);
     if (Object.keys(newErrors).length === 0) {
-      alert("you are successfully sign up");
-      navigate("/");
+    await postData({
+        body: {
+          name:value.Name,email:value.Email,password:value.Password,phone:value.MobileNumber
+        },
+      });
+  
     }
   };
 
   return (
     <>
+      {loading && (
+        <div className="absolute inset-0 flex items-center justify-center bg-gray-800 bg-opacity-50 z-50">
+          <div className="spinner-border text-primary" role="status">
+            <span>Loading...</span>
+          </div>
+        </div>
+      )}
       <form onSubmit={handleSignUpForm} className="w-full flex flex-col gap-5">
         <div>
-          <label htmlFor="" className="font-semibold text-sm">
+          <label htmlFor="name" className="font-semibold text-sm">
             Name
           </label>
           <Input
@@ -72,12 +93,12 @@ const SignUpForm = () => {
             onChange={handleOnChange}
             id={"name"}
           />
-            {errors.Name && (
-              <span className=" text-red-600 text-xs">{errors.Name}</span>
-            )}
+          {errors.Name && (
+            <span className=" text-red-600 text-xs">{errors.Name}</span>
+          )}
         </div>
         <div>
-          <label htmlFor="" className="font-semibold text-sm">
+          <label htmlFor="email" className="font-semibold text-sm">
             Email
           </label>
           <Input
@@ -88,12 +109,12 @@ const SignUpForm = () => {
             onChange={handleOnChange}
             id={"email"}
           />
-            {errors.Email && (
-              <span className=" text-red-600 text-xs">{errors.Email}</span>
-            )}
+          {errors.Email && (
+            <span className=" text-red-600 text-xs">{errors.Email}</span>
+          )}
         </div>
         <div>
-          <label htmlFor="" className="font-semibold text-sm">
+          <label htmlFor="mobileNumber" className="font-semibold text-sm">
             Mobile Number
           </label>
           <Input
@@ -104,14 +125,12 @@ const SignUpForm = () => {
             onChange={handleOnChange}
             id={"mobileNumber"}
           />
-            {errors.MobileNumber && (
-              <span className=" text-red-600 text-xs">
-                {errors.MobileNumber}
-              </span>
-            )}
+          {errors.MobileNumber && (
+            <span className=" text-red-600 text-xs">{errors.MobileNumber}</span>
+          )}
         </div>
         <div className="relative">
-          <label htmlFor="" className="font-semibold text-sm">
+          <label htmlFor="password" className="font-semibold text-sm">
             Password
           </label>
           <Input
@@ -133,12 +152,12 @@ const SignUpForm = () => {
               onClick={handleIconClick}
             />
           )}
-            {errors.Password && (
-              <span className=" text-red-600 text-xs">{errors.Password}</span>
-            )}
+          {errors.Password && (
+            <span className=" text-red-600 text-xs">{errors.Password}</span>
+          )}
         </div>
         <div>
-          <label htmlFor="" className="font-semibold text-sm">
+          <label htmlFor="confirmPassword" className="font-semibold text-sm">
             Confirm Password
           </label>
           <Input
@@ -147,18 +166,15 @@ const SignUpForm = () => {
             value={value.ConfirmPassword}
             name={"ConfirmPassword"}
             onChange={handleOnChange}
-            id={"mobileNumber"}
+            id={"confirmPassword"}
           />
-            {errors.ConfirmPassword ? (
-              <span className=" text-red-600 text-xs">
-                {errors.ConfirmPassword}
-              </span>
-            ) : (
-              <span className=" text-red-600 text-xs">
-                {errors.notSamePwd}
-              </span>
-            )}
-          
+          {errors.ConfirmPassword ? (
+            <span className=" text-red-600 text-xs">
+              {errors.ConfirmPassword}
+            </span>
+          ) : (
+            <span className=" text-red-600 text-xs">{errors.notSamePwd}</span>
+          )}
         </div>
         <div className=" mt-5">
           <Button name={"Sign Up"} />
@@ -166,6 +182,17 @@ const SignUpForm = () => {
       </form>
     </>
   );
+
+  function onSignUpSuccess({ data = {} }) {
+    const userId = data?.user?.id;
+    if (userId) {
+        console.log(userId, 'from signup form');
+        navigate(routes.logIn());
+    } else {
+        console.error('User ID not found in response data');
+    }  
+  }
+
 };
 
 export default SignUpForm;
