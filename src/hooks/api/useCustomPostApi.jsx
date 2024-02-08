@@ -25,6 +25,7 @@ const useCustomPostApi = ({ url = '', errorCB = () => { }, successCB = () => { }
                 }
                 if (jsonData.sts === '01') {
                     alert(jsonData.msg)
+                    setData(jsonData)
                     successCB({data:jsonData})
                 }
             }
