@@ -22,16 +22,18 @@ const useCustomPostApi = ({ url = '', errorCB = () => { }, successCB = () => { }
                 if (jsonData.sts === '00') {
                     alert('fetching error')
                     throw new Error(JSON.stringify(jsonData))
+                    
                 }
                 if (jsonData.sts === '01') {
                     alert(jsonData.msg)
+                    successCB({ data: jsonData })
                     setData(jsonData)
-                    successCB({data:jsonData})
                 }
             }
         } catch (error) {
             errorCB(error)
             alert(error);
+            setErrors(error)
             setLoading(false)
         } finally {
             setLoading(false)
