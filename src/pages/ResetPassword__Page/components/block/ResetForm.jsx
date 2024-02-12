@@ -5,8 +5,11 @@ import { ValidateNumber } from "../../../../Utils/validators/ValidateNumber";
 import { ValidatePassword } from "../../../../Utils/validators/ValidatePassword";
 import { RiEyeCloseLine, RiEyeLine } from "react-icons/ri";
 import useCustomPostApi from "../../../../hooks/api/useCustomPostApi";
+import { useNavigate } from "react-router-dom";
+import { routes } from "../../../../constants/routes";
 
 const ResetForm = () => {
+    const navigate =useNavigate()
   const {
     data,
     loading,
@@ -19,7 +22,7 @@ const ResetForm = () => {
     loading: loadingMsg,
     errors: resetErrors,
     postData: resetPassword,
-  } = useCustomPostApi({ url: "https://portal.umall.in/api/reset-password" });
+  } = useCustomPostApi({ url: "https://portal.umall.in/api/reset-password"});
   const [value, setValue] = useState({
     mobile: "",
     enterOtp: "",
@@ -50,7 +53,6 @@ const ResetForm = () => {
     if (!value.enterOtp) {
       newErrors.enterOtp = "OTP is required";
     }
-
     if (!value.confirmPassword) {
       newErrors.confirmPassword = "Confirm Password is required";
     }
@@ -59,9 +61,10 @@ const ResetForm = () => {
     }
     setErrors(newErrors);
     if (Object.keys(newErrors).length === 0 && value.enterOtp == currentOtp) {
-      await resetPassword({
+        await resetPassword({
         body: { number: value.mobile, password: value.confirmPassword },
-      });
+        });
+        navigate(routes.logIn())  
     }
   };
   const handleOnSendOtp = async (event) => {
@@ -166,7 +169,8 @@ const ResetForm = () => {
         </div>
       </form>
     </>
-  );
+    );
+
 };
 
 export default ResetForm;
