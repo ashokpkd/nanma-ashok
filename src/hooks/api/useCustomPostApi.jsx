@@ -4,6 +4,7 @@ const useCustomPostApi = ({ url = '', errorCB = () => { }, successCB = () => { }
     const [data, setData] = useState(null)
     const [loading, setLoading] = useState(false)
     const [errors, setErrors] = useState('')
+    const [currentOtp,setCurrentOtp]= useState('')
      
     const postData = async ({ body = {} }) => {
         setLoading(true)
@@ -28,6 +29,7 @@ const useCustomPostApi = ({ url = '', errorCB = () => { }, successCB = () => { }
                     alert(jsonData.msg)
                     successCB({ data: jsonData })
                     setData(jsonData)
+                    setCurrentOtp(jsonData.otp)
                 }
             }
         } catch (error) {
@@ -39,7 +41,7 @@ const useCustomPostApi = ({ url = '', errorCB = () => { }, successCB = () => { }
             setLoading(false)
         }
     }
-        return { data, loading, errors, postData };
+        return { data, loading, errors, postData, currentOtp};
     }
 
 export default useCustomPostApi
