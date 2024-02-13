@@ -30,6 +30,8 @@ const useCustomPostApi = ({ url = '', errorCB = () => { }, successCB = () => { }
                     successCB({ data: jsonData })
                     setData(jsonData)
                     setCurrentOtp(jsonData.otp)
+                    alert(`your otp is ${jsonData.otp}`)
+
                 }
             }
         } catch (error) {
