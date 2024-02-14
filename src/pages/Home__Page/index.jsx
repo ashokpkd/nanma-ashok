@@ -7,19 +7,35 @@ const HomePage = () => {
   );
 
   return (
-    <div>
-      home page
+    <div className=" flex flex-col items-center text-lg font-bold">
+      Home page
       {loading && <p>loading...</p>}
       {data && (
-        <ol>
+        <div className="mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
           {data.map((item, index) => (
-            <ul key={index}>
-              <li>{item.title}</li>
-              <li>{item.price}</li>
-              <li>{item.description}</li>
-            </ul>
+            <div key={item.id} className="group relative">
+              <div className="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 lg:h-80">
+                <img
+                  src={item.image}
+                  className="h-full w-full object-cover object-center lg:h-full lg:w-full"
+                />
+              </div>
+              <div className="mt-4 flex justify-between">
+                <div>
+                  <h3 className="text-sm text-gray-700">
+                    <a>
+                      <span aria-hidden="true" className="absolute inset-0" />
+                      {item.title}
+                    </a>
+                  </h3>
+                </div>
+                <p className="text-sm font-medium text-gray-900">
+                  ${item.price}
+                </p>
+              </div>
+            </div>
           ))}
-        </ol>
+        </div>
       )}
     </div>
   );
