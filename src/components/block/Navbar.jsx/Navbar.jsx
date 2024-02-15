@@ -15,9 +15,9 @@ const Navbar = () => {
             <RiMenu2Fill size={24} className=" md:hidden" />
           </div>
         </div>
-        <div className="nav-center flex items-center gap-4 justify-center max-md:hidden ">
+        <div className="nav-center flex items-center gap-10 justify-center max-md:hidden ">
           <nav>
-            <ul className="flex justify-evenly gap-3 text-md font-medium">
+            <ul className="flex justify-evenly gap-10 text-md font-medium">
               <li>
                 <a href="">Home</a>
               </li>
@@ -52,7 +52,7 @@ const Navbar = () => {
           <GrCart size={24} />
         </div>
       </div>
-      <div className="nav2 w-[100%] md:hidden">
+      <div className="nav2 w-[100%] md:hidden pb-5">
         <div className="search-bar px-3">
           <div className="search-box relative  ">
             <input

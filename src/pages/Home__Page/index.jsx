@@ -2,6 +2,8 @@ import React from "react";
 import useCustomGetApi from "../../hooks/api/useCustomGetApi";
 import Navbar from "../../components/block/Navbar.jsx/Navbar";
 import Footer from "../../components/block/Footer";
+import Bullets from "../../components/UI/Bullets";
+import HomeBanner from "./components/block/HomeBanner";
 
 const HomePage = () => {
   const { data, errors, loading } = useCustomGetApi(
@@ -10,8 +12,11 @@ const HomePage = () => {
 
   return (
     <div className=" flex flex-col items-center">
-        <Navbar/>
+      <Navbar />
+      <hr className=" w-full text-slate-400 "/>
+      <HomeBanner/>
       {loading && <p>loading...</p>}
+    
       {data && (
         <div className="mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
           {data.map((item, index) => (
