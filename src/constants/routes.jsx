@@ -2,5 +2,7 @@ export const routes = {
     home: () => '/home',
     logIn: () => '/',
     signUp: () => '/signup',
-    resetPassword: ()=> '/resetpassword'
+    resetPassword: () => '/resetpassword',
+    contact: () => '/contact',
+    about:()=>'/about'
 }

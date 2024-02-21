@@ -9,7 +9,7 @@ import playstore from "../../assets/images/app-store.png";
 const Footer = () => {
   return (
     <>
-      <div className=" bg-black w-[100%] flex flex-col text-sm text-white px-5 py-5 gap-5 md:flex-row">
+      <div className=" bg-black w-[100%] flex flex-col text-sm text-white px-5 py-5 gap-5 md:flex-row  ">
         <div className="flex flex-col gap-1 md:w-[20%] ">
           <p className="text-lg font-bold">Exclusive</p>
           <p className="text-md font-semibold">Subscribe</p>
@@ -61,7 +61,7 @@ const Footer = () => {
               <img src={playstore} alt="appstore" />
             </div>
           </div>
-          <div className="flex justify-between w-full pr-12">
+          <div className="flex justify-start gap-8 w-full items-center">
             <div>
               <RiFacebookLine size={25} />
             </div>

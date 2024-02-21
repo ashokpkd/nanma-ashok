@@ -5,7 +5,9 @@ import { GrCart } from "react-icons/gr";
 import { FiSearch } from "react-icons/fi";
 import { RiMenu2Fill } from "react-icons/ri";
 import { IoHeartOutline } from "react-icons/io5";
+import { useNavigate } from "react-router-dom";
 const Navbar = () => {
+  const navigate = useNavigate();
   return (
     <>
       <div className="navbar flex justify-between items-center w-[100%] px-10 py-5">
@@ -15,20 +17,20 @@ const Navbar = () => {
             <RiMenu2Fill size={24} className=" md:hidden" />
           </div>
         </div>
-        <div className="nav-center flex items-center gap-10 justify-center max-md:hidden ">
+        <div className="nav-center flex items-center gap-10 justify-center max:sm:hidden max-md:hidden ">
           <nav>
-            <ul className="flex justify-evenly gap-10 text-md font-medium">
-              <li>
-                <a href="">Home</a>
+            <ul className="flex justify-evenly gap-10 text-md font-medium ">
+              <li className="hover:text-current cursor-pointer">
+                <p onClick={() => navigate("/home")}>Home</p>
               </li>
-              <li>
-                <a href="">Contact</a>
+              <li className="hover:text-current cursor-pointer">
+                <p onClick={() => navigate("/contact")}>Contact</p>
               </li>
-              <li>
-                <a href="">About</a>
+              <li className="hover:text-current cursor-pointer">
+                <p onClick={() => navigate("/about")}>About</p>
               </li>
-              <li>
-                <a href="">Sign Up</a>
+              <li className="hover:text-current cursor-pointer">
+                <p onClick={() => navigate("/signup")}>Sign Up</p>
               </li>
             </ul>
           </nav>
