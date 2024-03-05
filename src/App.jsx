@@ -8,16 +8,18 @@ import HomePage from './pages/Home__Page'
 import ResetPassword from './pages/ResetPassword__Page'
 import About from './pages/About__Page'
 import Contact from './pages/Contact__Page'
+import Profile from './pages/Profile__Page'
 const App = () => {
   return (
  <Router>
   <Routes>
-    <Route path={routes.logIn()} element={<SignInPage/>} />
-    <Route path={routes.signUp()} element={<SignUpPage/>} />
-    <Route path={routes.home()} element={<HomePage/>} />
+        <Route path={routes.logIn()} element={<SignInPage />} />
+        <Route path={routes.signUp()} element={<SignUpPage />} />
+        <Route path={routes.home()} element={<HomePage />} />
         <Route path={routes.resetPassword()} element={<ResetPassword />} />
         <Route path={routes.about()} element={<About />} />
-        <Route path={ routes.contact()} element={<Contact/>} />
+        <Route path={routes.contact()} element={<Contact />} />
+        <Route path={routes.profile()} element={<Profile/>} />
   </Routes>
  </Router>
   )

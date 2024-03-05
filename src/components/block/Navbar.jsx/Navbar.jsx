@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import logo from "../../../assets/images/logo.png";
 import { FiUser } from "react-icons/fi";
 import { GrCart } from "react-icons/gr";
@@ -6,15 +6,24 @@ import { FiSearch } from "react-icons/fi";
 import { RiMenu2Fill } from "react-icons/ri";
 import { IoHeartOutline } from "react-icons/io5";
 import { useNavigate } from "react-router-dom";
+import Hamburger from "../Hamburger";
 const Navbar = () => {
   const navigate = useNavigate();
+  const [hamburgerOpen, setHamburgerOpen] = useState(false);
+  const toggleHamburger = () => {
+    setHamburgerOpen((prev) => !prev);
+  };
   return (
     <>
-      <div className="navbar flex justify-between items-center w-[100%] px-10 py-5">
+      <div className="navbar flex justify-between items-center w-[80%] py-5">
         <div className="nav-left">
           <div className="nav-logo min-w-40 ">
             <img src={logo} alt="logo" className=" max-md:hidden" />
-            <RiMenu2Fill size={24} className=" md:hidden" />
+            <RiMenu2Fill
+              size={24}
+              className=" md:hidden"
+              onClick={toggleHamburger}
+            />
           </div>
         </div>
         <div className="nav-center flex items-center gap-10 justify-center max:sm:hidden max-md:hidden ">
@@ -30,7 +39,7 @@ const Navbar = () => {
                 <p onClick={() => navigate("/about")}>About</p>
               </li>
               <li className="hover:text-current cursor-pointer">
-                <p onClick={() => navigate("/signup")}>Sign Up</p>
+                <p onClick={() => navigate("/")}>SignIn</p>
               </li>
             </ul>
           </nav>
@@ -48,7 +57,7 @@ const Navbar = () => {
             </div>
           </div>
         </div>
-        <div className="nav-right flex gap-3">
+        <div className="nav-right flex gap-3 cursor-pointer">
           <IoHeartOutline size={24} className="md:hidden" />
           <FiUser size={24} className=" max-md:hidden" />
           <GrCart size={24} />
@@ -67,6 +76,7 @@ const Navbar = () => {
               size={20}
             />
           </div>
+          {hamburgerOpen ? <Hamburger /> : null}
         </div>
       </div>
     </>

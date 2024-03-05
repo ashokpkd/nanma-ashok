@@ -4,5 +4,7 @@ export const routes = {
     signUp: () => '/signup',
     resetPassword: () => '/resetpassword',
     contact: () => '/contact',
-    about:()=>'/about'
+    about: () => '/about',
+    profile: () => '/profile'
+    
 }
